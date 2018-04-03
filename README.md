@@ -1,11 +1,10 @@
 # Sinatra Activerecord Setup
 
-
 ## Objectives
 
-1. Setup a database in a Sinatra application.
-2. Create and use a Rakefile to run ActiveRecord migrations.
-3. Use ActiveRecord in a Sinatra application.
+1.  Setup a database in a Sinatra application.
+2.  Create and use a Rakefile to run ActiveRecord migrations.
+3.  Use ActiveRecord in a Sinatra application.
 
 ## Overview
 
@@ -104,12 +103,14 @@ Let's test out our handiwork by creating a `dogs` table with two columns: `name`
 ```bash
 rake db:create_migration NAME=create_dogs
 ```
+
 You should see the following output:
 
 ```bash
 =># db/migrate/20150914201353_create_dogs.rb
 ```
- The beginning of the file is a timestamp - yours should reflect the time that your `create_dogs` file was created! You've now created your first database migration inside of the `db` folder.
+
+The beginning of the file is a timestamp - yours should reflect the time that your `create_dogs` file was created! You've now created your first database migration inside of the `db` folder.
 
 Inside of the migration file, remove the default `change` method (we'll come back to this), and add methods for `up` and `down`.
 
@@ -156,6 +157,7 @@ You should see the following output:
 ```
 
 #### The `change` Method
+
 The change method is actually a shorter way of writing `up` and `down` methods. We can refactor our migration to look like this:
 
 ```
@@ -169,6 +171,7 @@ class CreateDogs < ActiveRecord::Migration
 
 end
 ```
+
 While the rollback (`down`) method is not included, it's implicit in the change method. Rolling back the database would work in exactly the same way as using the `down` method.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-activerecord-setup' title='Sinatra Activerecord Setup'>Sinatra Activerecord Setup</a> on Learn.co and start learning to code for free.</p>
